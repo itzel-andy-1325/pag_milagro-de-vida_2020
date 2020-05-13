@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--totaledit-->
+<html>
+    <head>
+        <title>Horario</title>
+        <link rel="stylesheet" type="text/css" href="css/etiquetas.css">
+        <link rel="stylesheet" type="text/css" href="css/estructura.css">
+        <meta charset="UTF8">
+        
+    </head>
+    
+    <body>
+        <div id="principal">
+            <header>
+                <a1 href="#" title="Logo"><img src="images/logomdv.png" height="115" width="120" alt="Logotipo"></a1>
+                <a2 href="#" title="Titulo"><img src="images/logomilvid.png" height="110" width="470" alt="Titulo"></a2>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="index.html" title="Inicio">Inicio</a></li>
+                    <li><a href="plantasventa.html" title="Plantas en venta">Plantas en venta</a></li>
+                    <li><a href="horarios.html" title="Horario">Horario</a></li>
+                    <li><a href="cuidados.html" title="Cuidados">Cuidados</a></li>
+                    <li><a href="tipoplantas.html" title="Tipos de plantas">Tipos de plantas</a></li>
+                    <li><a href="Localizacion.html" title="Localizacion">Localización</a></li>   
+                </ul>
+                <form>
+                    <input id="buscador" name="txtBuscar" type="search" placeholder="Buscar aquí..." autofocus ></input>
+                    <input type="submit" class="boton peque aceptar" value="buscar" onclick="registraBusqueda()"></input>
+                </form>
+                
+            </nav>
+
+            <section>
+                <article>
+                    <header1>
+                        <hgroup>
+                            <h1></h1>
+                          <h1>Horario</h1>  
+                        </hgroup>
+                     </header1>
+                        <div align="center">
+                        <p>De Lunes  a Domingo:</p><br>
+                        <p>7:00 AM</p><br>
+                        <p>a</p><br>
+                        <p>8:00 PM</p><br>
+                        
+                        <img src="images/localizacion1.jpg" title="Local"><br>
+                        <p>Foto del vivero.</p>
+                        
+                        </div>
+                </article>
+                
+                <!--<article class="bloques">
+                        <h2>Misión</h2>
+                        <p>Promover el cuidado del medio ambiente. Nos destacamos por nuestro personal calificado y con experiencia laboral. </p>
+                        <p>Tenemos una amplia variedad de productos a la venta. Somos el lugar perfecto donde puedes adquirir plantas.</p> <br>
+                        <img src="images/localizacion2.png" width="280" height="200"  alt="localizacion"/>
+                        <p1>Foto del negocio.</p1>
+                </article>
+                
+                <article class="bloques">
+                        <h2>Visión</h2>
+                        <!--<video controls src="media/video.ogv" type="video/ogv" poster=""></video>
+                        <p>Nuestra visión es ser uno de los mejores viveros del estado de Oaxaca, dando a conocer la calidad de trabajo y brindándole al cliente un excelente servicio.</p>
+                </article>-->
+            </section>
+            <footer>
+                <article>
+                    <section class="elementoPie">
+                    </section>
+                    <section class="elementoPie" id="busquedasRecientes">
+                        <!--<h2>Última búsqueda</h2>-->
+                        <p>PROGRAMADORAS:</p><br><p>Itzel Xocoatzín Zárate Santos</p><br><p>Andrea Liseth López Barranco</p>
+                    </section>
+                    <section class="elementoPie">
+                       <!-- <canvas id="lienzo" width="300px" height="210px">
+                        </canvas>-->
+                    <br><p align="center"> WhatsApp: 
+<a href="https://wa.me/529512112696?text=informe%20de%20"><br><img src="images/whatsapp.png" width="50px" height="50px" title="WhatsApp"></a></p>
+            <p> CONTACTANOS </p>
+                   </section>
+                        <img src="images/piepag.jpg" height="150" width="345" float="left" alt="Logotipo">
+                </article> 
+            </footer>
+        </div>
+        
+        <script type="text/javascript">        
+            function cargaContextoCanvas(idCanvas){
+               var elemento = document.getElementById(idCanvas);
+               if(elemento && elemento.getContext){
+                  var contexto = elemento.getContext('2d');
+                  if(contexto){
+                    return contexto;
+                  }
+               }
+               return FALSE;
+            }
+            
+            
+            function registraBusqueda(){
+                var busqueda = "<h3 color='#fff'>" + document.getElementById('buscador').value + "</h3>";
+                localStorage.setItem("ultimaBusqueda", busqueda);
+            }
+                
+                function mostrarBusqueda (){
+                    if(localStorage.getItem("ultimaBusqueda") != undefined){
+                        var contenedor = document.getElementById('busquedasRecientes');
+                        contenedor.innerHTML +=  localStorage.getItem("ultimaBusqueda");
+                    }  
+                }
+                
+            window.onload = function(){
+                    var ctx = cargaContextoCanvas('lienzo');
+                    if(ctx){
+                        var img = new Image();
+                        img.src = 'images/HTML5logo.svg';
+                        img.onload = function(){
+                        ctx.drawImage(img, 40, 10);
+                        }
+                    }
+                mostrarBusqueda();
+                }
+        </script>
+    </body>
+</html>
